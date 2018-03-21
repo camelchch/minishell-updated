@@ -156,6 +156,7 @@ void	unset_env(char **paras, char ***env)
 
 	cp = *env;
 	index = 0;
+	paras++;
 	while (*cp && !(!ft_strncmp(*paras, *cp, ft_strlen(*paras)) && ft_strlen(*paras) < ft_strlen(*cp) && (*cp)[ft_strlen(*paras)] == '='))
 	{
 		cp++;
