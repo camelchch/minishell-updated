@@ -6,7 +6,7 @@
 /*   By: saxiao <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 12:19:33 by saxiao            #+#    #+#             */
-/*   Updated: 2018/01/31 15:25:31 by saxiao           ###   ########.fr       */
+/*   Updated: 2018/03/22 17:25:23 by saxiao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		main(int ac, char **av, char **env)
 	init_shtable(table, all_path);
 //	put_sh(table);
 	shell(ac, av, env, table);
+//	get_autoline(table);
 	return (0);
 }

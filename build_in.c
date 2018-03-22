@@ -6,8 +6,7 @@ int		is_buildin(char *app)
 {
 	return (!strcmp(app, "echo") || !strcmp(app, "cd") ||\
 			!strcmp(app, "setenv") || !strcmp(app, "unsetenv") ||\
-			!strcmp(app, "env") || !strcmp(app, "exit") ||\
-			!strcmp(app, "pwd"));
+			!strcmp(app, "env") || !strcmp(app, "exit"));
 }
 
 int		nb_str(char **paras)
@@ -42,13 +41,14 @@ void	ft_exit(void)
 }
 
 
-void	pwd(void)
+/*void	pwd(void)
 {
 	char	path[PATH_MAX + 1];
 
 	getcwd(path, PATH_MAX + 1);
 	ft_printf("%s\n", path);
 }
+*/
 
 void	add_env(char ***env, char **paras)
 {
@@ -140,7 +140,7 @@ void	cd(char **paras, char ***env)
 	{
 		set_env(tempwd, env);
 	tempwd[1] = "PWD";
-	tempwd[2] = *paras;
+	tempwd[2] = getcwd(path, PATH_MAX);
 		set_env(tempwd, env);
 	}
 	else
@@ -174,8 +174,8 @@ void	do_build(char **paras, char ***env, t_sh *table)
 		cd(paras, env);
 	else if (!ft_strcmp(*paras, "echo"))
 		echo(paras);
-	else if (!ft_strcmp(*paras, "pwd"))
-		pwd();
+	//else if (!ft_strcmp(*paras, "pwd"))
+	//	pwd();
 	else if (!ft_strcmp(*paras, "setenv") || !ft_strcmp(*paras, "unsetenv"))
 	{
 	if (!ft_strcmp(*paras, "unsetenv"))

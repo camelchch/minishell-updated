@@ -6,7 +6,7 @@
 /*   By: saxiao <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 15:43:03 by saxiao            #+#    #+#             */
-/*   Updated: 2018/02/01 14:54:19 by saxiao           ###   ########.fr       */
+/*   Updated: 2018/03/22 11:55:00 by saxiao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,7 @@ void	init_shtable(t_sh *table, char **path)
 	ft_bzero(table, sizeof(t_sh) * 100);
 	while (path && *path)
 	{
-	/*
-		ft_printf("path is =%s\n",*path);
-		(void)dirp;
-		(void)dir;
-		(void)index;
-		(void)add;
-		(void)table;
-		*/
-		ft_printf("path is =%s\n",*path);
-		if (!(dirp = opendir(*path)))
-			perror("open path failed");
-			else
+		if ((dirp = opendir(*path)))
 			{
 		while ((dir = readdir(dirp)))
 		{
